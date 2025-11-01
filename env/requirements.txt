@@ -1,0 +1,10 @@
+# Required Python packages for the Pharma Sales Insights project
+pandas
+numpy
+matplotlib
+seaborn
+statsmodels
+xgboost
+scikit-learn
+papermill
+jupyter
