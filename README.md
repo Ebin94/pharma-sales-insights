@@ -81,7 +81,9 @@ Example SQL views provide reusable logic for monthly trends, product performance
 - **Pareto Distribution:** Approximately 20 % of products contribute ~80 % of total revenue.  In particular, *Generic Painkiller 64* and *Generic Painkiller 55* are runaway leaders in this synthetic portfolio.  Focusing marketing and supply efforts on these SKUs yields outsized returns.
 - **Therapeutic Concentration:** Analgesics (N02BE/B) account for nearly half of total sales, followed by non‑steroidal anti‑inflammatories (M01AE/M01AB) and respiratory treatments (R03).  These categories drive business performance.
 - **Price Elasticity:** The scatter of unit price versus units sold exhibits a modest negative slope—demand decreases as price increases, but not dramatically.  Promotions boost sales volumes but should be aligned with seasonal demand spikes for maximum impact.
-- **Forecasting Performance:** Across the top products, the XGBoost model generally achieves lower Mean Absolute Percentage Error (MAPE) than the SARIMA baseline, thanks to its ability to incorporate lagged sales, promotional intensity and price signals.  Forecasts for the next six months are included for each SKU in `data/processed/`.
+- **Forecasting Performance:** The Seasonal Naive model slightly outperformed the Gradient Boosting Regressor (GBR) on short-term forecasts, reflecting the dataset’s strong annual seasonality.
+While the naive approach captured recurring patterns efficiently, the GBR model demonstrated potential for scaling to larger, feature-rich datasets ; where factors like promotions, regional trends, and price changes can enhance predictive accuracy.
+Six-month product-level forecasts are included in /data/processed/.
 
 ## Reproducibility & Notes
 
