@@ -52,18 +52,42 @@ make all
 
 Executing the forecasting notebook will generate a set of CSV files (`data/processed/forecast_<sku>.csv`) containing actual and predicted values for the last six months of the sample and forecasts for the next six months for each top SKU.
 
-## Snapshots
+### 3. Tableau Business Intelligence Layer
 
-Below are static snapshots generated during the ETL process.  These visuals capture the most salient patterns in the dataset.  Feel free to open them in higher resolution from the `imgs/` directory.
+Interactive dashboard enabling exploration of sales trends, seasonality, regional behaviour, product performance & promotional impact.
 
-| Metric | Snapshot |
-|-------|---------|
-| **Monthly Total Sales** | ![Monthly Total Sales](imgs/monthly_sales_trend.png) |
-| **Top 20 Products by Sales** | ![Top 20 Products](imgs/top_products.png) |
-| **Sales by ATC Category** | ![ATC Breakdown](imgs/atc_breakdown.png) |
-| **Seasonality: Average Monthly Sales** | ![Seasonality](imgs/seasonality_curve.png) |
-| **Price vs Demand** | ![Price vs Demand](imgs/price_vs_demand.png) |
+🔗 **Live Tableau Dashboard**  
+https://public.tableau.com/views/Pharmacyproject_17633176318690/Sheet1
 
+---
+
+## 📊 Tableau Insights & Key Findings
+
+Below are static snapshot previews (stored in the `imgs/` folder).
+
+| Insight | Summary | Snapshot |
+| --- | --- | --- |
+| **Monthly Sales Trend (2020–2024)** | Clear recurring pattern: peak demand in Q1, dip in September, recovery in Q4. | ![Monthly Sales Trend](imgs/monthly_sales_trend.png) |
+| **Top 15 Products by Total Sales** | Generic Painkiller 64 dominates market share, far exceeding others. | ![Top Products](imgs/top_products.png) |
+| **Sales Distribution by ATC Category** | Analgesics & NSAIDs produce highest share of revenue. | ![ATC Distribution](imgs/atc_breakdown.png) |
+| **Seasonality Pattern Across 5 Years** | Strong repeatable seasonal cycle validates predictability. | ![Seasonality Pattern](imgs/seasonality_pattern.png) |
+| **Regional Sales Heatmap (Monthly)** | London, South West, South East strongest; North East weakest. | ![Regional Heatmap](imgs/regional_heatmap.png) |
+| **Promotional Activity vs Sales Impact** | Promotions correlate with demand peaks but seasonality is stronger than promotion alone. | ![Promotional Impact](imgs/promo_vs_sales.png) |
+| **Price vs Demand** | Weak negative correlation; higher price slightly reduces sales volume. | ![Price vs Demand](imgs/price_vs_demand.png) |
+
+---
+
+## 🧠 Business Value & Recommendations
+
+| Opportunity | Impact |
+| --- | --- |
+| Seasonal trends support proactive inventory planning | Reduced stockouts and waste |
+| Concentrated revenue among few products | SKU prioritisation for supply chain optimisation |
+| Clear regional segmentation patterns | Targeted marketing & distribution |
+| Promotions are not primary demand driver | Align campaigns with seasonal peaks |
+| Forecastability supports demand planning | Improved cashflow and warehouse efficiency |
+
+---
 ## Data Model & SQL
 
 The analytical data model uses a **star schema**.  A central fact table (`fact_sales`) records transactional metrics for each date/product/region/retailer combination.  Surrounding dimension tables include:
