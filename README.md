@@ -67,12 +67,12 @@ Below are static snapshot previews (stored in the `imgs/` folder).
 
 | Insight | Summary | Snapshot |
 | --- | --- | --- |
-| **Monthly Sales Trend (2020–2024)** | Clear recurring pattern: peak demand in Q1, dip in September, recovery in Q4. | ![Monthly Sales Trend](imgs/Montly sales trend.png) |
-| **Top 15 Products by Total Sales** | Generic Painkiller 64 dominates market share, far exceeding others. | ![Top Products](imgs/top_products.png) |
-| **Sales Distribution by ATC Category** | Analgesics & NSAIDs produce highest share of revenue. | ![ATC Distribution](imgs/atc_breakdown.png) |
-| **Seasonality Pattern Across 5 Years** | Strong repeatable seasonal cycle validates predictability. | ![Seasonality Pattern](imgs/seasonality_pattern.png) |
-| **Regional Sales Heatmap (Monthly)** | London, South West, South East strongest; North East weakest. | ![Regional Heatmap](imgs/regional_heatmap.png) |
-| **Promotional Activity vs Sales Impact** | Promotions correlate with demand peaks but seasonality is stronger than promotion alone. | ![Promotional Impact](imgs/promo_vs_sales.png) |
+| **Monthly Sales Trend (2020–2024)** | Clear recurring pattern: peak demand in Q1, dip in September, recovery in Q4. | ![Monthly Sales Trend](imgs/Montly-sales-trend.png) |
+| **Top 15 Products by Total Sales** | Generic Painkiller 64 dominates market share, far exceeding others. | ![Top Products](imgs/Top-15-products-by-total-sales.png) |
+| **Sales Distribution by ATC Category** | Analgesics & NSAIDs produce highest share of revenue. | ![ATC Distribution](imgs/Sales-Distribution-by-ATC-Category.png) |
+| **Seasonality Pattern Across 5 Years** | Strong repeatable seasonal cycle validates predictability. | ![Seasonality Pattern](imgs/Seasonality-Pattern.png) |
+| **Regional Sales Heatmap (Monthly)** | London, South West, South East strongest; North East weakest. | ![Regional Heatmap](imgs/Heatmap.png) |
+| **Promotional Activity vs Sales Impact** | Promotions correlate with demand peaks but seasonality is stronger than promotion alone. | ![Promotional Impact](imgs/Promotional-activity-vs-Sales-impact.png) |
 | **Price vs Demand** | Weak negative correlation; higher price slightly reduces sales volume. | ![Price vs Demand](imgs/price_vs_demand.png) |
 
 ---
