@@ -67,7 +67,7 @@ Below are static snapshot previews (stored in the `imgs/` folder).
 
 | Insight | Summary | Snapshot |
 | --- | --- | --- |
-| **Monthly Sales Trend (2020–2024)** | Clear recurring pattern: peak demand in Q1, dip in September, recovery in Q4. | ![Monthly Sales Trend](imgs/monthly_sales_trend.png) |
+| **Monthly Sales Trend (2020–2024)** | Clear recurring pattern: peak demand in Q1, dip in September, recovery in Q4. | ![Monthly Sales Trend](imgs/Montly sales trend.png) |
 | **Top 15 Products by Total Sales** | Generic Painkiller 64 dominates market share, far exceeding others. | ![Top Products](imgs/top_products.png) |
 | **Sales Distribution by ATC Category** | Analgesics & NSAIDs produce highest share of revenue. | ![ATC Distribution](imgs/atc_breakdown.png) |
 | **Seasonality Pattern Across 5 Years** | Strong repeatable seasonal cycle validates predictability. | ![Seasonality Pattern](imgs/seasonality_pattern.png) |
