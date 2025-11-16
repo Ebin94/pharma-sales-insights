@@ -57,7 +57,7 @@ Executing the forecasting notebook will generate a set of CSV files (`data/proce
 Interactive dashboard enabling exploration of sales trends, seasonality, regional behaviour, product performance & promotional impact.
 
 🔗 **Live Tableau Dashboard**  
-https://public.tableau.com/views/Pharmacyproject_17633176318690/Sheet1
+https://public.tableau.com/views/Pharmacyproject_17633176318690/Sheet1?:language=en-GB&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link
 
 ---
 
