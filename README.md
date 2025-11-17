@@ -1,114 +1,50 @@
 # Pharma Sales & Inventory Intelligence — From Data Cleaning to Tableau Insights
 
-A complete end-to-end analytics project using synthetic pharmaceutical sales data (2020–2024), demonstrating a real-world workflow from raw transaction-level data to forecasting and BI dashboarding. The project supports key business decisions related to **inventory planning, seasonality, revenue performance and promotion effectiveness**.
+This project analyses five years of synthetic pharmaceutical sales data and demonstrates a realistic workflow used in commercial analytics environments. The objective was to understand demand patterns, evaluate product and regional performance, assess promotional impact and generate forecasting outputs that support stock-planning decisions. The work combines Python-based data processing, machine learning, SQL modelling, forecasting techniques and interactive Tableau reporting.
 
 ---
 
-##  Executive Summary
+## Dataset Summary
 
-Pharmaceutical distributors must balance demand uncertainty with inventory cost constraints.  
-Excess stock leads to expiry/waste, while stock-outs cause lost sales and poor customer satisfaction.  
-This project builds a scalable **analytics and forecasting framework** capable of:
+The dataset contains 501,046 daily sales records between 2020-01-01 and 2024-12-31. Each entry includes product, region, retailer, units sold, price, discounts, promotions and revenue.
 
-- Understanding product and category performance across time and regions
-- Identifying seasonality patterns and demand drivers
-- Measuring the business impact of pricing and promotions
-- Forecasting future demand to optimise stock levels and revenue protection
-- Delivering insights in an interactive executive Tableau dashboard
+Key characteristics:
+- 65 products across 8 ATC therapeutic categories
+- 10 geographic regions and 30 retailer locations
+- ~£7.16M total revenue (synthetic)
+- Strong seasonality patterns linked to winter flu and summer allergy periods
 
----
-
-##  Business Problem
-
-How can we leverage historical sales patterns to forecast demand accurately and support proactive stock positioning across locations and product categories?
+The dataset was selected to approximate real stock-management and demand-planning problems faced in retail and healthcare operations.
 
 ---
 
-##  Project Objectives
+## Project Structure and Approach
 
-| Objective | Delivered Through |
-|----------|-------------------|
-| Analyse sales behaviour & product mix | EDA, SQL views & Tableau dashboards |
-| Detect seasonality & trends | Time-series analysis & monthly aggregations |
-| Understand price & promotion impact | Correlation analysis & dual-axis charts |
-| Forecast future sales | SARIMA & Gradient Boosting forecasting |
-| Support decision-making | BI dashboards & key business recommendations |
+### 1. Data Preparation (Python)
+- Loaded and cleaned raw transactional data
+- Removed invalid or incomplete rows and standardised categorical fields
+- Built monthly and regional aggregations for time-series and performance analysis
+- Produced exploratory analysis plots
 
----
+### 2. SQL Data Model
+- Designed a star schema including fact and dimension tables
+- Created views for reusable analytical logic such as monthly trends, ABC segmentation and top-product rankings
+- Wrote example business queries for stakeholder reporting
 
-##  Tech Stack
+### 3. Forecasting Models
+- Evaluated seasonal patterns and created time-series features
+- Model comparison using Seasonal-Naive baseline vs Gradient Boosting
+- Exported six-month forecast outputs for top-selling SKUs
 
-**Python (Pandas, NumPy, Matplotlib, Statsmodels, Scikit-Learn, XGBoost), SQL, Jupyter, Papermill, GitHub, Tableau**
+The simpler Seasonal-Naive model produced better accuracy than Gradient Boosting for short-term predictions, driven by strong annual seasonality. Additional feature enrichment (e.g. weather, holidays) would likely improve ML-based performance.
 
----
-
-##  Pipeline Overview
-
-```
-Raw Data → ETL & Cleaning → Feature Engineering → SQL & Aggregation
-→ ML Forecasting → Tableau Dashboards → Insights
-```
-
-### Workflow Components
-
-| Stage | Description |
-|-------|------------|
-| **ETL** | Clean raw data, remove nulls, normalise product & region values |
-| **Feature Engineering** | Lag/rolling features, monthly aggregates, promo intensity |
-| **Forecasting** | SARIMA & Gradient Boosting SKUs-level prediction |
-| **BI Dashboards** | Tableau views for seasonality, regions, products & promotions |
+### 4. Tableau Insights
+- Built interactive views covering sales trends, regional variations, seasonality, promotional activity and price behaviour
+- Combined trend and comparison views to support business decisions such as stock allocation and promotional timing
 
 ---
 
-##  Forecasting Performance Summary
-
-- The **Seasonal Naive** model outperformed **Gradient Boosting Regressor (GBR)** on short-term forecasting due to strong yearly seasonality in demand.
-- XGBoost struggled with limited feature variety—realistic for retail where external factors (weather, industry trends, holiday calendar) matter.
-- This highlights opportunities to improve accuracy by introducing **causal variables & feature enrichment**.
-
- Forecast outputs saved to:  
-`/data/processed/forecast_<sku>.csv`
-
----
-
-##  Tableau Insights & Business Intelligence Layer
-
-Interactive dashboards built in Tableau deliver insight-driven views for stakeholders across sales trends, promotions, regional behaviour and category performance.
-
-🔗 **Live Tableau Dashboard**  
-https://public.tableau.com/views/Pharmacyproject_17633176318690/Sheet1?:language=en-GB&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link
-
----
-
-##  Dashboard Snapshots
-
-_All images are stored in the `/imgs/` directory._
-
-| Insight | Summary | Snapshot |
-| --- | --- | --- |
-| **Monthly Sales Trend (2020-2024)** | Seasonal peaks in Q1 and mid-year; weakest Nov–Dec. | ![Monthly Sales Trend](imgs/Montly-sales-trend.png) |
-| **Top 15 Products by Total Sales** | Generic Painkiller 64 dominates revenue. | ![Top Products](imgs/Top-15-products-by-total-sales.png) |
-| **Sales Distribution by ATC Category** | Analgesics & NSAIDs drive majority revenue. | ![ATC Breakdown](imgs/Sales-Distribution-by-ATC-Category.png) |
-| **Seasonality Pattern** | Predictable multi-year cyclic behaviour. | ![Seasonality Pattern](imgs/Seasonality-Pattern.png) |
-| **Regional Sales Heatmap** | London, SW, SE strongest performance. | ![Regional Heatmap](imgs/Heatmap.png) |
-| **Promotional Activity vs Sales Impact** | Promotions help, but seasonal demand stronger. | ![Promotional Impact](imgs/Promotional-activity-vs-Sales-impact.png) |
-| **Price vs Demand** | Mild negative elasticity. | ![Price vs Demand](imgs/price_vs_demand.png) |
-
----
-
-##  Business Recommendations
-
-| Observation | Recommendation |
-|------------|---------------|
-| Focus inventory planning around seasonal patterns | Avoid stockouts during peak months |
-| Prioritise top SKUs (Pareto 80/20) | Maximise revenue efficiency and control inventory |
-| Allocate stock by region performance | Tailored distribution strategy |
-| Align promotions with seasonal peaks | Avoid ineffective blanket discounting |
-| Expand feature set for ML forecasting | Weather, holidays, competitor pricing |
-
----
-
-## 🔧 Reproducibility
+## How to Run the Project
 
 ```bash
 pip install -r env/requirements.txt
@@ -116,24 +52,54 @@ python src/ingest_clean.py
 python src/transform_metrics.py
 ```
 
-To re-run notebooks with pre-rendered outputs:
-
+(Optional) To execute notebooks with outputs:
 ```bash
 papermill notebooks/01_data_cleaning_eda.ipynb notebooks/01_data_cleaning_eda.ipynb
 papermill notebooks/02_feature_engineering.ipynb notebooks/02_feature_engineering.ipynb
 papermill notebooks/03_forecasting_analysis.ipynb notebooks/03_forecasting_analysis.ipynb
 ```
 
----
-
-##  Future Enhancements
-
-- Add automated ML tuning & AutoML
-- Deploy forecasting via REST API
-- Incorporate external datasets (weather, public health indicators)
-- Integrate Tableau forecasting & scenario planning
-- Add anomaly detection (outlier demand weeks)
+Forecast results:
+```
+data/processed/forecast_<sku>.csv
+```
 
 ---
+
+## Tableau Dashboard
+
+Live version available here:  
+https://public.tableau.com/views/Pharmacyproject_17633176318690/Sheet1?:language=en-GB
+
+### Snapshot Preview (stored in /imgs)
+
+| Insight | Summary | Snapshot |
+| --- | --- | --- |
+| Monthly Sales Trend | Seasonal peaks in Q1 and June-August; lowest Nov-Dec | ![Monthly Sales Trend](imgs/Montly-sales-trend.png) |
+| Top 15 Products by Sales | Strong product concentration; Generic Painkiller 64 leads | ![Top Products](imgs/Top-15-products-by-total-sales.png) |
+| Sales by ATC Category | Analgesics and NSAIDs account for most revenue | ![ATC Breakdown](imgs/Sales-Distribution-by-ATC-Category.png) |
+| Seasonality Pattern | Demand repeats annually, long-term predictable | ![Seasonality Pattern](imgs/Seasonality-Pattern.png) |
+| Regional Heatmap | London, South West and South East highest sales | ![Regional Heatmap](imgs/Heatmap.png) |
+| Promotions vs Sales | Promotions help, but seasonal forces stronger | ![Promotional Impact](imgs/Promotional-activity-vs-Sales-impact.png) |
+| Price vs Demand | Mild inverse relationship, limited elasticity | ![Price vs Demand](imgs/price_vs_demand.png) |
+
+---
+
+## Key Findings
+
+- Clear seasonal behaviour supports proactive inventory planning
+- Small set of SKUs drives majority of revenue (Pareto distribution)
+- Sales performance varies meaningfully by region
+- Promotions can increase short-term volume but are most effective when aligned with predictable demand cycles
+- Baseline seasonal forecasting is highly competitive when strong seasonality exists
+
+---
+
+## Reflection and Next Steps
+
+This project reinforced the value of feature understanding before model selection. The outcome where a simple seasonal approach outperformed a more complex model highlighted the importance of feature relevance over algorithm complexity. Future improvements include integrating external drivers, automating model selection and expanding ML forecasting.
+
+---
+
 
 
